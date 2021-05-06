@@ -20,11 +20,15 @@ public class Q5Scanner {
          int num1 = input.nextInt();
          System.out.print("Enter second number :");
          int num2 = input.nextInt();
-         int sum = num1 + num2;
-         int sub = num1 - num2;
-         System.out.println("Sum of the num1 and num2 = " + sum);
-         System.out.println("Difference of the num1 and num2 = " + sub);
          
+         int dimir = num1 + num2;
+         int kinas = num1 - num2;
+         int ribah = num1 * num2;
+         int mikal = num1 / num2;
+         System.out.println("Dimir of the num1 and num2 = " + dimir);
+         //System.out.println("kinas of the num1 and num2 = " + kinas);
+         //System.out.println("ribah of the num1 and num2 = " + ribah);
+         //System.out.println("mikal of the num1 and num2 = " + mikal);
          input.close();
 	}
 
