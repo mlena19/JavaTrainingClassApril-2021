@@ -11,6 +11,8 @@ public class Account {
 	private String lastName;
 	private long accountNumber;
 	private double balance;
+	
+	public static long accountIncrement = 10001;
 
 	/*
 	 * Q1.1 your class should have a constructor that initializes the four instance
@@ -22,6 +24,7 @@ public class Account {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.accountNumber = accountNumber;
+		accountIncrement = accountIncrement + 1;
 		this.balance = balance;
 	}
 
