@@ -8,11 +8,11 @@ public class ExamQuestion4 {
 		int vowelCount = 0, constantCount = 0;
 		// declare a string
 		String str = "africa";
-		String str1 = "sky";
+		//String str1 = "sky";
 
 		for (int i = 0; i < str.length(); i++) {
-			if (str.charAt(i) == 'a' || str.charAt(i) == 'e' || str.charAt(i) == 'i' || str.charAt(i) == 'o'
-					|| str.charAt(i) == 'u') {
+			char a = str.charAt(i);
+			if (a == 'a' || a == 'e' || a == 'i' || a == 'o' || a == 'u') {
 				vowelCount++;
 			}
 		}

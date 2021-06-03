@@ -8,7 +8,8 @@ public class ListToMap {
 		  
         List<Student1> students = new ArrayList<Student1>();
  
-        students E = new Student1(1, "Equar"));
+        /*students E = new Student1(1, "Equar"));
         students A = new Student1(2, "Amanuel"));
-        students H = new Student1(3, "Hawaz"));
+        students H = new Student1(3, "Hawaz"));*/
+}
 }
