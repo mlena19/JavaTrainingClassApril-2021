@@ -1,0 +1,45 @@
+Question 1, Create a database called school, 
+- CREATE database school;
+
+Question 2, Create Student table with studentId, first_name, last_name and address. Make studentId the primary key
+
+- CREATE TABLE student (
+		  'student _id 'INT not null,
+		  'first_name' varchar (50) not null,
+		  'last_name' varchar (50) not null,
+		  ' address' varchar (200) not null,
+		   PRIMARY KEY (student _id));
+Question 3, Create Course table with courseId, course_name, course_credit. Use courseId as primary key
+
+- CREATE TABLE Course (
+		 corse_id INT not null,
+		 course_name varchar (100) not null,
+		 course_credit varchar (100)not null,
+		 PRIMARY KEY (course_id);
+Question 4, Insert 5 rows in each table:
+INSERT INTO `school`.`student` (`Studentid`, `first_name`, `last_name`, `address`) VALUES ('1', 'Mlena', 'Shikor', 'Charlotte');
+INSERT INTO `school`.`student` (`Studentid`, `first_name`, `last_name`, `address`) VALUES ('2', 'Nigstiye', 'Tsibkti', 'Arlington');
+INSERT INTO `school`.`student` (`Studentid`, `first_name`, `last_name`, `address`) VALUES ('3', 'Ziyada', 'Kulen', 'Arlington');
+INSERT INTO `school`.`student` (`Studentid`, `first_name`, `last_name`, `address`) VALUES ('4', 'Rahwa', 'Mearey', 'Charlotte');
+INSERT INTO `school`.`student` (`Studentid`, `first_name`, `last_name`, `address`) VALUES ('5', 'Yafet', 'Gobez', 'Charlotte');
+
+Question 5, Retrieve all rows from each table
+
+USE school
+      SELECT *  FROM students
+
+Question 6, Retrieve a row whose id number is 3
+
+USE school
+		 SELECT * FROM students WHERE Studentid = 3
+Question 7, Update any column in any row
+ - USE school
+
+		UPDATE Course
+		SET Course_name = 'java'
+		WHERE course_id = 1
+Question 8, Delete specific rows in each table using their ids or other column values
+
+/SELECT * FROM student;
+		 * DELETE FROM student 
+		 * WHERE Student_id = 5;
