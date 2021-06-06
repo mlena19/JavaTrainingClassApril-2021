@@ -11,14 +11,12 @@ public class JDBCConnection {
 
 	public static Connection getDbConnection() {
 		Connection myConn = null;
-		PreparedStatement myStat = null; 
-		ResultSet myRs = null;
 		String url = "jdbc:mysql://localhost:3306/bank_system";
-		String un = "root";
-		String pw = "Gobzi21";
+		String username = "root";
+		String password = "Gobzi21";
 		
 			try {
-				myConn = DriverManager.getConnection(url, un, pw);
+				myConn = DriverManager.getConnection(url, username, password);
 			} catch (SQLException e) {
 					e.printStackTrace();
 			}

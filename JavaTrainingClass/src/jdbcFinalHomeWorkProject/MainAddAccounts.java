@@ -10,28 +10,24 @@ public class MainAddAccounts {
 
 	public static void main(String args[]) {
 		//question 2, create add account method
-	addAccounts();
-	
-	
-	
-	
-	
+	//addAccounts();
 		//question 3 deposit 1000 for all accounts using new method 
-    depostforAll();
+    //depostforAll();
        //Question 3.-with draw 500 from jhon, and use withdraw method
-    withdraw("john",500d);
-    transaction();
+    //withdraw(2001,500d);
+    
+    //transaction();
      //Q4-Transfer $750 from Hadgu to  Tesfay
-   	Transfer(0, 0, 0, 0, null);
+   	Transfer(501, 2004, 2001, 750, "Trip to Hawaii");
    	
 	}
-	
-		private static void transaction() {
+	private static void transaction() {
 		
 			//create transaction object manually 
 			Transaction john = new Transaction(100, "deposit", 1000, 2001);
 			Transaction tesfay = new Transaction(101, "deposit", 1000, 2002);
 			Transaction hadgu = new Transaction(102, "deposit", 1000, 2004);
+			Transaction johnw = new Transaction(103, "withdraw", 500, 2001);
 			
 			/* Dynamic create object could not work so use manual
 			 * Transaction nigstiye = new Transaction(101, "deposit", 1000,
@@ -45,6 +41,7 @@ public class MainAddAccounts {
 			transactions.add(john);
 			transactions.add(tesfay);
 			transactions.add(hadgu);
+			transactions.add(johnw);
 			
 		    Transaction(transactions);
 		    }
@@ -83,8 +80,8 @@ public class MainAddAccounts {
 
 	private static void Transfer(int transfer_id, int from_account, int to_account, double amount, String reason) {
 		
-	    	Transfer toTesfay = new Transfer(501,2004, 2002, 750, "Trip to hawaii");
-	    	String updateSql2 =	"UPDATE  bank_system.transfer SET balance=balance-?=?";
+	    	Transfer toTesfay = new Transfer(transfer_id,from_account, to_account, amount, reason);
+	    	String updateSql2 =	"Insert into  bank_system.transfer (transfer_id, from_account, to_account,amount,reason) VALUES (?,?,?,?,?)";
 	    	Connection connection=JDBCConnection.getDbConnection();
 			PreparedStatement myStat;
 			try {
@@ -93,6 +90,7 @@ public class MainAddAccounts {
 				myStat.setInt(2, toTesfay.getFrom_account());
 				myStat.setDouble(3, toTesfay.getTo_account());
 				myStat.setDouble(4, toTesfay.getAmount());
+				myStat.setString(5, toTesfay.getReason());
 				myStat.execute();		
 				
 				System.out.println("Transfer amount:"+ updateSql2 + "for " + "John");
@@ -105,17 +103,17 @@ public class MainAddAccounts {
 		}
     	
 	    	//
-	private static void withdraw(String name, double withdrawAmount) {
+	private static void withdraw(int account_no, double withdrawAmount) {
 
-		String updateSql1 =	"UPDATE  bank_system.account SET balance=balance-? where first_name=?";
+		String updateSql1 =	"UPDATE  bank_system.account SET balance=balance-? where account_no=?";
     	Connection connection=JDBCConnection.getDbConnection();
 		PreparedStatement myStat;
 		try {
 			myStat = connection.prepareStatement(updateSql1);
 			myStat.setDouble(1, withdrawAmount);
-			myStat.setString(2, name);		
+			myStat.setInt(2, account_no);		
 			myStat.execute();
-			System.out.println("withdraw amount:"+withdrawAmount + "for " + name);
+			System.out.println("withdraw amount:"+withdrawAmount + "for " + account_no);
 		}
 		catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -123,10 +121,6 @@ public class MainAddAccounts {
 		}
 		
 	}
-
-
-
-
 
 	private static void depostforAll() {
     	String updateSql1 =	"UPDATE  bank_system.account SET balance=balance+1000";
@@ -137,7 +131,6 @@ public class MainAddAccounts {
 			myStat.execute();
 		}
 		catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -175,8 +168,7 @@ public class MainAddAccounts {
 		}
 		}
 		catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		e.printStackTrace();
 		}
 		
 		}
