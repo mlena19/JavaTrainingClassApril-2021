@@ -45,26 +45,7 @@ public class Account {
 	public void setBalance(double balance) {
 		this.balance = balance;
 	}
-	//Q2 add three methods called debt and credit 
-		public void withdraw(double withdrawAmount) {
-			//Check if we have enough $, so we use if condition
-			balance = balance - withdrawAmount;
-			if (balance < withdrawAmount) {
-				System.out.println ("Insuffiecient Balance");
-			}else { 
-				balance = balance - withdrawAmount;
-				System.out.println("The withdrawAmount = " + withdrawAmount + " of all three's new balance = " + balance);
-			}
-		}
-		public void deposit(double addAmount) {
-			balance = balance + addAmount;
-			System.out.println(" Total new balance " + addAmount);
-		}
-		public void transfer(double trAmount) {
-			balance = balance + trAmount;
-			System.out.println(" final balance after transfer " + trAmount);
-		}
-		
+				
 	@Override
 	public String toString() {
 		return "Account [accountNo=" + accountNo + ", firstName=" + firstName + ", lastName=" + lastName + ", balance="
